@@ -9,9 +9,12 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <p><Link to="/login">login</Link></p>
-                <p><Link to="/articles">articles</Link></p>
-                <p><Link to="/authors">authors</Link></p>
+                <ul>
+                    <li><Link to="/login">login</Link></li>
+                    <li><Link to="/register">register</Link></li>
+                    <li><Link to="/articles">articles</Link></li>
+                    <li><Link to="/authors">authors</Link></li>
+                </ul>
                 <div>
                     {this.props.children}
                 </div>

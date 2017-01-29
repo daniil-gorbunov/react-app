@@ -1,26 +1,17 @@
 import React from 'react';
 
-class Login extends React.Component {
+class Register extends React.Component {
     constructor() {
         super();
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            email: ''
         };
-    };
+    }
 
-    logIn = () => {
-        const username = encodeURIComponent(this.state.username);
-        const password = encodeURIComponent(this.state.password);
-        const formData = `username=${username}&password=${password}`;
+    register = () => {
 
-        fetch('http://localhost:3000/login', {
-            method: 'POST',
-            body: formData,
-            headers:  new Headers({'Content-Type': 'application/x-www-form-urlencoded'})
-        })
-            .then((data) => console.log(data))
-            .catch((error) => console.log(error))
     };
 
     handleChange = (evt) => {
@@ -52,8 +43,14 @@ class Login extends React.Component {
                         onChange={this.handleChange}/>
                 </p>
                 <p>
-                    <button onClick={this.logIn}>Log In</button>
+                    <input
+                        name="email"
+                        type="text"
+                        placeholder="Email"
+                        value={this.state.email}
+                        onChange={this.handleChange}/>
                 </p>
+                <p><button onClick={this.register}>Register</button></p>
             </form>
         )
     };
@@ -75,7 +72,7 @@ class Login extends React.Component {
                     loginOk: response.ok
                 });
             })
-    };
+    }
 }
 
-export default Login;
+export default Register;

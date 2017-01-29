@@ -1,6 +1,8 @@
+import constants from './constants';
+
 module.exports = {
     getAuthors(){
-        return fetch('http://localhost:3000/api/v1/author', {
+        return fetch(`${constants.API.BASE}${constants.API.AUTHOR}`, {
             headers: new Headers({'Content-Type': 'application/json'}),
         })
             .then((data) => data.json())
@@ -8,7 +10,7 @@ module.exports = {
     },
 
     getAuthor(id){
-        return fetch(`http://localhost:3000/api/v1/author/${id}`, {
+        return fetch(`${constants.API.BASE}${constants.API.AUTHOR}/${id}`, {
             headers: new Headers({'Content-Type': 'application/json'})
         })
             .then((data) => data.json())

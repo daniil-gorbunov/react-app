@@ -1,6 +1,8 @@
+import constants from './constants';
+
 module.exports = {
     getArticles(params){
-        return fetch(`http://localhost:3000/api/v1/article?query=${JSON.stringify(params)}`, {
+        return fetch(`${constants.API.BASE}${constants.API.ARTICLE}?query=${JSON.stringify(params)}`, {
             headers: new Headers({'Content-Type': 'application/json'}),
             body: params
         })
@@ -9,7 +11,7 @@ module.exports = {
     },
 
     getArticle(id){
-        return fetch(`http://localhost:3000/api/v1/article/${id}`, {
+        return fetch(`${constants.API.BASE}${constants.API.ARTICLE}/${id}`, {
             headers: new Headers({'Content-Type': 'application/json'})
         })
             .then((data) => data.json())
